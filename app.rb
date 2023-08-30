@@ -30,7 +30,7 @@ class App
     print 'Has parent permission? [Y/N]: '
     has_permission = gets.chomp
     permission_values = %w[n N]
-    student = Student.new(age,permission_values.include?(has_permission),name)
+    student = Student.new(age, permission_values.include?(has_permission), name)
     @people.push(student)
   end
 
@@ -41,7 +41,7 @@ class App
     name = gets.chomp
     print 'Specialization: '
     specialization = gets.chomp
-    teacher = Teacher.new(age, name, specialization,)
+    teacher = Teacher.new(age, name, specialization)
     @people.push(teacher)
   end
 
