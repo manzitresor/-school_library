@@ -11,9 +11,9 @@ class App
   end
 
   def create_person(person_code)
-    if person_code == 1
+    if person_code = 1
       create_student
-    elsif person_code == 2
+    elsif person_code = 5
       create_teacher
     else
       puts ' invalid input'
