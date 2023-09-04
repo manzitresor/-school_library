@@ -15,7 +15,6 @@ def main(app)
 
     number = gets.chomp.to_i
     break if number == 7
-
     execute_option(app, number)
   end
 end
@@ -27,7 +26,7 @@ def execute_option(app, number)
   when 2
     app.list_all_people
   when 3
-    app.create_person_option
+    app.create_person
   when 4
     app.create_book_option
   when 5

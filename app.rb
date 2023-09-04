@@ -10,7 +10,9 @@ class App
     @people = []
   end
 
-  def create_person(person_code)
+  def create_person()
+    print 'Do you want to create student (1) or a teacher (2)? [Input the number]: '
+    person_code = gets.chomp.to_i
     if person_code == 1
       create_student
     elsif person_code == 2
@@ -88,12 +90,6 @@ class App
     person.rentals.each do |rental|
       puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
     end
-  end
-
-  def create_person_option
-    print 'Do you want to create student (1) or a teacher (2)? [Input the number]: '
-    person_code = gets.chomp.to_i
-    create_person(person_code)
   end
 
   def create_book_option
