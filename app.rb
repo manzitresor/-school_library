@@ -17,11 +17,35 @@ class App
   def load_data 
     books = ReadFile.new("books.json").read
     books.map {|book| @books.push(Book.new(book["title"],book["author"]))}
+    people = ReadFile.new("people.json").read
+    people.each do |person_data|
+      if person_data['type'] == 'Student'
+        student = Student.new(person_data["age"],person["name"],person_data["parent_permission"])
+        student.instance_variable_set(:@id,person_data)
+        @people << student
+      else
+        teacher = Teacher.new(person_data["age"],person["specialization"],person_data["name"])
+        teacher.instance_variable_set(:@id,person_data)
+        @people << teacher
+      end
   end
-  
+end
+
   def save_data()
     books = @books.map {|book| {title: book.title,author: book.author}}
     WriteFile.new("books.json").write(books)
+    people = @people.map { |person|
+    if person.instance_of?(Teacher)
+      { 
+        id: person.id, age: person.age, specialization: person.specialization, name: person.name, type: person.class, parent_permission: person.parent_permission 
+      }
+    else
+      {
+        id: person.id, age: person.age, name: person.name, type: person.class, parent_permission: person.parent_permission
+      }
+    end
+    }
+    WriteFile.new("people.json").write(people)
   end
 
   def create_person()

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 501,
+    "age": 12,
+    "name": "manzi",
+    "type": "Student",
+    "parent_permission": "manzi"
+  },
+  {
+    "id": 720,
+    "age": 34,
+    "specialization": "math",
+    "name": "tresor",
+    "type": "Teacher",
+    "parent_permission": true
+  }
+]
