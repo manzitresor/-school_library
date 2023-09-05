@@ -47,7 +47,11 @@ class App
     @people.push(teacher)
   end
 
-  def create_book(title, author)
+  def create_book()
+    print 'Title: '
+    title = gets.chomp
+    print 'Author: '
+    author = gets.chomp
     book = Book.new(title, author)
     @books.push(book)
     puts 'Book created successfully'
@@ -91,15 +95,6 @@ class App
       puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
     end
   end
-
-  def create_book_option
-    print 'Title: '
-    title = gets.chomp
-    print 'Author: '
-    author = gets.chomp
-    create_book(title, author)
-  end
-
   def rental_option
     print 'ID of person: '
     id = gets.chomp.to_i

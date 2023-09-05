@@ -28,7 +28,7 @@ def execute_option(app, number)
   when 3
     app.create_person
   when 4
-    app.create_book_option
+    app.create_book
   when 5
     app.create_rental
   when 6
