@@ -4,10 +4,24 @@ require_relative 'person'
 require_relative 'rental'
 require_relative 'student'
 require_relative 'teacher'
+require_relative 'preserveData'
+require 'json'
+
 class App
   def initialize
     @books = []
     @people = []
+    @rentals = []
+  end
+
+  def load_data 
+    books = ReadFile.new("books.json").read
+    books.map {|book| @books.push(Book.new(book["title"],book["author"]))}
+  end
+  
+  def save_data()
+    books = @books.map {|book| {title: book.title,author: book.author}}
+    WriteFile.new("books.json").write(books)
   end
 
   def create_person()

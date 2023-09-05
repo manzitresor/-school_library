@@ -2,6 +2,7 @@ require './app'
 app = App.new
 
 def main(app)
+  app.load_data
   puts 'Welcome to School Library App!'
   loop do
     puts 'Please choose an option by entering a number:'
@@ -14,8 +15,8 @@ def main(app)
     puts '7 - Exit'
 
     number = gets.chomp.to_i
-    break if number == 7
     execute_option(app, number)
+    break if number == 7
   end
 end
 
@@ -33,6 +34,8 @@ def execute_option(app, number)
     app.create_rental
   when 6
     app.get_rental_option
+  when 7
+    app.save_data
   end
 end
 
